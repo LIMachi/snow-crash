@@ -1,0 +1,23 @@
+tries:
+ls, pwd, cd .. (up to root), ls, find -name "pass" (garbage), find -name "pass" 2>&1 | grep -v "denied" (more readable),
+tried with token, pas, flag, level and usr,
+tried with find -user "level00", then "flag00", got something (paths: /usr/sbin/john, /rofs/usr/sbin/john),
+can't get to /usr/sbin/john (access denied),
+can ls in /rofs !
+cat /rofs/usr/sbin/john
+cdiiddwpgswtgt
+tried to su into flag00 (as shown in the example)
+failure
+searching cipher techniques (the password is probably encoded in some way)
+got to https://www.dcode.fr/cipher-identifier
+tried most of them, can't find a valid (readable output), I expect the school to have put some whity joke as a password, but I'm not sure anymore
+trying the cipher teached at 42... (ft_ssl_des)
+base64 gives nothing, caesar either... but I realised I didn't try the most obvious shift option of 42...
+the output of caesar with a shift of 42 is: nottoohardhere
+su flag00 with nottoohardhere, we got in
+run getflag -> x24ti5gi3xOo12esiuxias
+since copy past is out of the question in such a basic terminal, I will need to use a command to extract this flag and use it as the password for level01
+getflag | awk '{print $NF}' > /tmp/level01
+didn't work (i don't know how to send this file to su, guess I'll have to get the ssh connection working)
+got ssh working (had to setup a local network)
+level00 complete, onto level01
