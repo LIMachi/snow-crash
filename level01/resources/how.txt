@@ -1,0 +1,20 @@
+let's use the same technique:
+find / -user "flag01" 2>&1 | grep -v "denied"
+no match :(
+"level01" gives nothing either...
+we still can't ls /home/user/
+we still have access to /rofs/
+searching inspiration in man find
+can't find anything usefull
+might be dumb at this point, but search how passwords are stored on linux
+Oh crap, my find command was not using partial matches when I searched "pass" (should have used -iname '*pass*' to get more results)
+I found a lot of password files, time to check them all...
+or make a script to search level01 and flag01 keyword in all of them instead? let's do that.
+I wrote it on my own machine first (see script.sh), then use scp to copy it into the vm (we have creation right on /tmp): scp -P 4242 script.sh level00@192.168.56.101:/tmp/script.sh
+the file was copied, but I can't execute it :(
+let's try another way, I chmod my script locally (777 because we can't be bothered)
+then try to use rsync instead of scp
+rsync -av -e 'ssh -p 4242' script.sh level00@192.168.56.101:/tmp/script.sh
+this time ls -l /tmp/script.sh shows that the file has full rights!
+nothing matches...
+it seem's my find was at fault again, I have access to /etc/passwd but it was not listed in my find (and flag01 has an extra field: 42hDRfypTqqnw)
