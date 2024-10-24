@@ -1,0 +1,4 @@
+scp -P 4242 level02@192.168.56.101:/home/user/level02/level02.pcap .
+Ouvrir le fichier pcap dans wireshark
+Regarder la frame 43
+Puis clic droit sur la frame et suivre > TCP Stream
