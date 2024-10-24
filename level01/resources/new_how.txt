@@ -1,0 +1,12 @@
+cat /etc/passwd
+copy password for flag01
+It is encrypted using old DES encryption
+Use a decrypter program to decycpher like john
+
+echo "flag01:42hDRfypTqqnw" > des-hash.txt
+john des-hash.txt
+cat ~/.john/john.pot
+
+password: abcdefg
+
+TODO: Faut-il telecharger john sur la vm ?
