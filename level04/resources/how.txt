@@ -1,0 +1,7 @@
+Similar file layout as the previous level, this time we have a perl file with some dubious function declaration and use of a Common Gateway Interface to load some parameters.
+(cat level04.pl, see first and last executable lines).
+We spent a lot of time trying to break it by inputing url like parameters, but nothing worked
+(tried such things as: ?x=test, ?x=getflag, ?x=sh&param=getflag, '?x=$(getflag)', ...)
+We then realised that there is a comment 'localhost:4747', and a simple curl to this address just prints a blank line
+inputing any value for x result in it being printed, and this time passing $(getflag) gets us the token
+(curl localhost:4747?x='$(getflag)' -> ne2searoevaevoem4ov4ar8ap)
