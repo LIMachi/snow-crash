@@ -1,0 +1,14 @@
+similar to level03, we have an elf (compiled) executable, and we also have a readable php file
+running the executable shows an error (can't open a file without name)
+inputting a valid file name seems to show the content of the file but with weird repetition (used level06.php as an input)
+after running string on the elf, we might assume that it calls the php for some reason
+we can see that the php expect 2 inputs, but discard the second and do some regex replacement on the first
+(specifically, that any string that is inside square brackets and starting with a x and separated by spaces will be transformed to y(<something>), a call to the y function)
+so we can input any string of the format `[x <something>]` and we get <something> as an output
+(echo "[x test]" > /tmp/test; ./level06 /tmp/test -> test)
+now comes the hard part, we tried many strings like shell_exec(getflag) to no avail
+desperate, we tri [x $getflag] and we get an error message telling us that getflag is not a valid variable
+after searching how to manipulate string in php, we end up on this part of the documentation:
+https://www.php.net/manual/en/language.types.string.php#language.types.string.parsing.advanced
+and after tinkering around with various configuration of culry braces, we ended up with an error message showing the flag when we input "[x {${shell_exec(getflag)}}]"
+echo '[x {${shell_exec(getflag)}}]' > /tmp/test; ./level06 /tmp/test -> PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
