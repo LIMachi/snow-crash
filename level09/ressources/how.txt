@@ -1,2 +1,4 @@
 scp -P 4242 script.py level09@192.168.56.101:/tmp/script.py
-python /tmp/script.py ./token
+python /tmp/script.py ./token -> f3iji1ju5yuevaus41q1afiuq
+su flag09
+getflag
