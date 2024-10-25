@@ -2,3 +2,9 @@ scp -P 4242 level02@192.168.56.101:/home/user/level02/level02.pcap .
 Ouvrir le fichier pcap dans wireshark
 Regarder la frame 43
 Puis clic droit sur la frame et suivre > TCP Stream
+
+On trouve ft_wandr...NDRel.L0L comme password
+
+On peut regarder a quoi correspondent les "." en regardant en hexdump au lieu de ascii
+Il s'agit de 7F qui correspond à DEL
+On supprime donc les points et les caractères qui les précèdent -> ft_waNDReL0L
