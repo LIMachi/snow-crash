@@ -1,0 +1,9 @@
+gdb /bin/getflag
+
+(gdb) b *0x0804898e
+(gdb) c
+(gdb) set $eax = 0
+(gdb) b *0x08048b0a
+(gdb) c
+(gdb) set $eax = 0x0bc6
+(gdb) c
