@@ -1,0 +1,17 @@
+usual shebang: pwd, ls, we find an exec named level10 and a token file
+running the exec file shows a prompt for a file (path?) and an address (to send the file to? like a scp?)
+a quick strings on the exec shows that the file is not checked against a know name this time, but uses the access function instead (which also checks the rights of the dereferenced file, so a link won't do it).
+after further inspection of the access function (aka reading the man of access), we find an interesting warning about access potentially giving false positive if a file is switched between an access call and an open call...
+maybe we can make a script or program that tries to match the time interval of level10 use of access and open (also weird thing, open is shown before access in strings, might have to use an actual decompiler to get a better idea of the breach).
+for now, trying with a file created in tmp and trying with localhost shows something interesting: the port seem to be hardcoded to 6969 (nice)
+after 45 minutes of trying combinations of telnet, netcat with localhost, 0, 127.0.0.1 and 192.168.56.101, we finally managed to use level10 to send a valid file through and received in clear on another terminal running nc -lk 6969.
+Now we need to find a way to swap the file with token in a short interval.
+scp -P 4242 swap_script.sh level10@192.168.56.101:/tmp/swap_script.sh
+now for the fun part (I wrote this after succeeding :P)
+have 3 terminals run the following commands:
+`/tmp/swap_script.sh`
+`nc -lk 6969`
+`while true; do ./level10 /tmp/link 192.168.56.101; done`
+if everything is working, in between the '.*( )*.' messages on the netcat terminal, we should see the actual token:woupa2yuojeeaaed06riuj63c
+this token is not the password for level11, so let's su flag10
+and don't forget the getflag: feulo4b72j7edeahuete3no7c
