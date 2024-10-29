@@ -1,4 +1,11 @@
+./level09 aaaaaaa
+abcdefg
+
+./level09 increment each character of its index.
+
+So we can try decrementing each character of token of its index
+
 scp -P 4242 script.py level09@192.168.56.101:/tmp/script.py
 python /tmp/script.py ./token -> f3iji1ju5yuevaus41q1afiuq
-su flag09
-getflag
+
+And it works !!
