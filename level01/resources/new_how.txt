@@ -12,4 +12,7 @@ cat ~/.john/john.pot
 
 password: abcdefg
 
-TODO: Faut-il telecharger john sur la vm ?
+----- Do it in a docker
+
+docker build -t john-ripper .
+docker run --rm -ti john-ripper
