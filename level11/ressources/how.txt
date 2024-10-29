@@ -1,0 +1,10 @@
+ok, this one is easy: we have a lua file with a clear code to read,
+and at the top of the hash function we can see a usage of a command line: `"echo "..pass.." | sha1sum"` to calculate a hash
+we can simply use this command line to do anything we want if we can create a password that highjack that echo command by adding > <file> at the end of the password (this way the echo will create a new file with it's content)
+to make sure this works, we connect ourselves using the netcat command used in the previous level in interactive mode instead of listening mode using the address visible inside the lua file (127.0.0.1 or localhost, on port 5151)
+nc localhost 5151
+we input test > /tmp/l11
+obviously the password check fails, but if we do cat /tmp/l11 we get 'test'
+now we just have to pass in the result of getpass (assuming the lua script has the correct right for this)
+`getflag` > /tmp/l11
+and when we cat /tmp/l11 -> Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s

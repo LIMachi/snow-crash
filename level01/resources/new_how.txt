@@ -3,6 +3,9 @@ copy password for flag01
 It is encrypted using old DES encryption
 Use a decrypter program to decycpher like john
 
+sudo apt update
+sudo apt install john
+
 echo "flag01:42hDRfypTqqnw" > des-hash.txt
 john des-hash.txt
 cat ~/.john/john.pot
