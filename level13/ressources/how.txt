@@ -1,0 +1,19 @@
+Since we cannot emulate our uid before executing the program we need to find a way to pass the test getuid == 4242
+
+Run the program with gdb
+
+(gdb) b main
+(gdb) r
+(gdb) dissasemble main
+
+Watch for where getuid is called and compare (cmp ou strcmp)
+
+Set a Breakpoint Right Before the cmp :
+
+(gdb) b *0x9234729342
+(gdb) continue
+
+Change je (jump if equal) to jmp (jump)
+
+(gdb) set {char}0x0804859f = 0xeb
+(gdb) c
