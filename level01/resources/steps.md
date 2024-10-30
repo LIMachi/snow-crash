@@ -1,19 +1,14 @@
 ssh:
 - `cat /etc/passwd | grep flag01`
-- copy flag01 and the hashed password (`flag01:42hDRfypTqqnw`)
+- we will need to copy `flag01:42hDRfypTqqnw` into `utils`
 
-host:
-- edit the docker file line 12 so that a file will be created with the copied hashed password between the quotes
-- `vim Dockerfile`
-- run docker with:
-`docker build -t john-ripper .`
-`docker run --rm -ti john-ripper`
-- copy the cracked password (abcdefg)
-
-TODO: test docker
+utils:
+- `echo "flag01:42hDRfypTqqnw" > /tmp/crack`
+- `sudo john /tmp/crack`
+- `sudo cat /root/.john/john.pot` or `cat ~/.john/john.pot` (depends on how john was installed/run and privileges)
+- the cracked password is found: `abcdefg`, copy it
 
 ssh:
-- `su flag01`
-- paste the copied password
+- `su flag01`, paste the password
 - `getflag`, copy the flag
 - `su level02`, paste the flag as the password

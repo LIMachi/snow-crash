@@ -1,3 +1,9 @@
+IMPORTANT:
+-
+ip address of the vm's aren't guaranteed to be the same as the ones used in the steps, use `ifconfig` or `ip address` to check the valid ip and change them as needed in the steps
+
+\
+\
 first start Virtual Box
 
 
@@ -22,5 +28,6 @@ start the vm, if everything worked the vm should show an ip that starts similar 
 
 now you can start a ssh connection to the vm on any terminal outside the vm by using `ssh -p 4242 level00@192.168.56.101` and inputting level00 as the password when prompted.
 
-for the rest of the evaluation, `host` will refer to the host machine running vm, and `ssh` a terminal connected to the vm via ssh
+for the rest of the evaluation, `host` will refer to the host machine running vm, `ssh` a terminal connected to the vm running snow_crash via ssh, and `utils` is a secondary vm to run `john-the-ripper` and `wireshark`.
+
 `host` is always expected to be running in the resources folder of the current level
