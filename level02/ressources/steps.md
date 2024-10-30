@@ -6,4 +6,5 @@ utils (visual):
 - Find interesting packet
 - Follow tcp stream
 - Display in hexdump to identify what are the non printable characters
+- `su flag03`
 
